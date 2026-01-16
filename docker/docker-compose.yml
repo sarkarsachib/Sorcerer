@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16-latest
+    container_name: sorcerer-postgres
+    environment:
+      POSTGRES_DB: sorcerer_index
+      POSTGRES_USER: sorcerer
+      POSTGRES_PASSWORD: dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sorcerer"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: sorcerer-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # API will be built later
+
+volumes:
+  pgdata:

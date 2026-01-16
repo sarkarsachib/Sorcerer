@@ -1,0 +1,33 @@
+# Rust
+/rust/target/
+Cargo.lock
+**/*.rs.bk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# Environment
+.env
+.env.local
+local.properties
+
+# Database
+pgdata/
+
+# OS
+.DS_Store
+Thumbs.db
