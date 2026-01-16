@@ -1,0 +1,33 @@
+# Code Owners for Sorcerer
+
+# Default: All code changes require approval from maintainers
+* @sorcerer-team
+
+# Core Rust code requires senior maintainer approval
+/rust/sorcerer-core/ @senior-maintainer
+
+# Search API requires search team approval
+/rust/sorcerer-search/ @search-team
+
+# Crawler requires crawler team approval
+/rust/sorcerer-crawler/ @crawler-team
+
+# Python agent system requires agent team approval
+/python/sorcerer/agent/ @agent-team
+
+# Database changes require DBA approval
+/database/ @dba-team
+
+# Infrastructure requires DevOps approval
+/docker/ @devops-team
+.github/ @devops-team
+
+# Documentation requires documentation team approval
+/docs/ @docs-team
+
+# Configuration requires team lead approval
+/config/ @team-leads
+
+# Tests can be reviewed by any maintainer
+/tests/ @sorcerer-team
+/python/tests/ @sorcerer-team

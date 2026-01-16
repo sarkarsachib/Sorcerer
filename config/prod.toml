@@ -1,0 +1,22 @@
+[system]
+log_level = "info"
+
+[database]
+host = "production-db.example.com"
+port = 5432
+name = "sorcerer_index"
+pool_size = 50
+timeout_secs = 15
+
+[indexing]
+batch_size = 500
+auto_commit_interval_secs = 300
+
+[crawler]
+max_concurrent_crawls = 20
+timeout_secs = 30
+
+[agents]
+max_sub_agents = 10
+memory_ttl_hours = 24
+default_timeout_secs = 300

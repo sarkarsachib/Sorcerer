@@ -1,0 +1,31 @@
+[system]
+name = "Sorcerer"
+version = "0.1.0"
+log_level = "info"
+
+[database]
+host = "localhost"
+port = 5432
+name = "sorcerer_index"
+pool_size = 20
+timeout_secs = 30
+
+[indexing]
+vector_dimensions = 1536
+batch_size = 100
+auto_commit_interval_secs = 300
+
+[crawler]
+user_agent = "Sorcerer/0.1.0 (+http://sorcerer.ai)"
+max_concurrent_crawls = 10
+timeout_secs = 30
+
+[agents]
+max_sub_agents = 5
+memory_ttl_hours = 24
+default_timeout_secs = 300
+
+[api]
+host = "0.0.0.0"
+port = 8080
+grpc_port = 50051

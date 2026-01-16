@@ -1,0 +1,22 @@
+[system]
+log_level = "debug"
+
+[database]
+host = "localhost"
+port = 5432
+name = "sorcerer_index"
+pool_size = 10
+timeout_secs = 30
+
+[indexing]
+batch_size = 50
+auto_commit_interval_secs = 60
+
+[crawler]
+max_concurrent_crawls = 5
+timeout_secs = 30
+
+[agents]
+max_sub_agents = 3
+memory_ttl_hours = 1
+default_timeout_secs = 60
