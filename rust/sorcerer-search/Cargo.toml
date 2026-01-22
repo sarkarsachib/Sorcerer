@@ -10,8 +10,11 @@ sorcerer-core = { path = "../sorcerer-core" }
 tokio = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
 sqlx = { workspace = true }
 tracing = { workspace = true }
+async-trait = { workspace = true }
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["full"] }

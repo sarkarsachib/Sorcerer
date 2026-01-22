@@ -17,6 +17,10 @@ pub enum SorcererError {
     #[error("Index error: {0}")]
     IndexError(String),
 
+    /// Crawler operation errors
+    #[error("Crawler error: {0}")]
+    CrawlerError(String),
+
     /// Agent execution errors
     #[error("Agent error: {0}")]
     AgentError(String),

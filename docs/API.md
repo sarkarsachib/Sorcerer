@@ -21,8 +21,7 @@ Traditional full-text search using the inverted index.
   "mode": "keyword",
   "text": "machine learning algorithms",
   "constraints": {
-    "max_results": 50,
-    "min_trust_score": 0.3
+    "max_results": 50
   }
 }
 ```
@@ -36,8 +35,7 @@ Vector similarity search using embeddings.
   "mode": "semantic",
   "text": "artificial intelligence",
   "constraints": {
-    "max_results": 20,
-    "min_trust_score": 0.5
+    "max_results": 20
   }
 }
 ```
@@ -104,7 +102,7 @@ External API discovery and integration.
 ```typescript
 interface QueryConstraints {
   updated_after?: DateTime;  // Only results updated after this time
-  min_trust_score: float;    // Minimum trust score (0.0 - 1.0)
+  min_trust_score?: float;   // Minimum trust score (0.0 - 1.0), defaults to 0.0
   max_results: number;         // Maximum number of results
 }
 ```
@@ -129,8 +127,7 @@ enum QueryAction {
   "mode": "semantic",
   "text": "climate change statistics",
   "constraints": {
-    "max_results": 10,
-    "min_trust_score": 0.6
+    "max_results": 10
   },
   "actions": ["verify"]
 }

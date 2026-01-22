@@ -5,11 +5,21 @@ environment variable overrides.
 """
 
 import os
-import toml
+import sys
 from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
 
+# Use stdlib tomllib on Python 3.11+, fall back to toml
+if sys.version_info >= (3, 11):
+    import tomllib
+else:
+    try:
+        import toml as tomllib
+    except ImportError:
+        raise ImportError(
+            "toml package required for Python <3.11. Install with: pip install toml"
+        )
 
 @dataclass
 class SystemConfig:
@@ -86,7 +96,13 @@ class ConfigLoader:
         """
         if self._config is None:
             if self.config_path and self.config_path.exists():
-                self._config = toml.load(self.config_path)
+                # Handle binary vs text mode
+                if sys.version_info >= (3, 11):
+                    with open(self.config_path, 'rb') as f:
+                        self._config = tomllib.load(f)
+                else:
+                    with open(self.config_path, 'r') as f:
+                        self._config = tomllib.load(f)
             else:
                 self._config = self._get_defaults()
 
