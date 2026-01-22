@@ -1,6 +1,13 @@
 """Pytest configuration and shared fixtures"""
 
+import os
 import pytest
+from pathlib import Path
+
+# Ensure parent directories are in path
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from sorcerer.config.loader import ConfigLoader
 
 

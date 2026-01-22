@@ -34,6 +34,12 @@ COPY python/ ./python/
 WORKDIR /app/python
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+# Set Python path for module resolution
+ENV PYTHONPATH=/app/python:$PYTHONPATH
+
+# Ensure Python is in PATH
+ENV PATH=/usr/local/bin:$PATH
+
 # Copy config
 COPY config/ /etc/sorcerer/
 

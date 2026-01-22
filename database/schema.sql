@@ -49,6 +49,16 @@ CREATE TABLE inverted_index (
     frequency INTEGER DEFAULT 1
 );
 
+-- Unique constraints for idempotent seed data
+ALTER TABLE entities
+ADD CONSTRAINT uc_entity_unique UNIQUE (document_id, name, entity_type);
+
+ALTER TABLE relationships
+ADD CONSTRAINT uc_relationship_unique UNIQUE (entity_a_id, entity_b_id, relationship_type);
+
+ALTER TABLE inverted_index
+ADD CONSTRAINT uc_inverted_index_unique UNIQUE (document_id, keyword, position);
+
 -- Create indexes for performance
 CREATE INDEX idx_documents_source ON documents(source);
 CREATE INDEX idx_documents_created_at ON documents(created_at);

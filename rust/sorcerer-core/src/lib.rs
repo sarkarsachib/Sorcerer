@@ -10,9 +10,22 @@ pub mod index;
 pub mod query;
 pub mod result;
 
-pub use agent::{Agent, AgentError, AgentResult, AgentType, ExecutionStatus, Memory, Task};
-pub use config::{AgentsConfig, ApiConfig, CrawlerConfig, DatabaseConfig, IndexingConfig, SorcererConfig, SystemConfig};
+pub use agent::{
+    Agent, AgentError, AgentResult, AgentType, ExecutionStatus, Memory, Task,
+};
+
+pub use config::{
+    AgentsConfig, ApiConfig, CrawlerConfig, DatabaseConfig, IndexingConfig,
+    SorcererConfig, SystemConfig,
+};
+
 pub use error::{SorcererError, Result};
-pub use index::{Document, Entity, IndexStore, IndexError, Metadata, SearchQuery as IndexSearchQuery, SearchResult as IndexSearchResult};
+
+pub use index::{
+    Document, Entity, IndexStore, IndexError, Metadata,
+    SearchQuery as IndexSearchQuery, SearchResult as IndexSearchResult,
+};
+
 pub use query::{QueryAction, QueryConstraints, QueryMode, SearchQuery};
+
 pub use result::{QueryResult, SearchResult};

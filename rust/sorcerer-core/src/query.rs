@@ -50,8 +50,8 @@ impl SearchQuery {
 pub struct QueryConstraints {
     /// Only return results updated after this time
     pub updated_after: Option<DateTime<Utc>>,
-    /// Minimum trust score (0.0 - 1.0)
-    pub min_trust_score: f32,
+    /// Minimum trust score (0.0 - 1.0), defaults to 0.0
+    pub min_trust_score: Option<f32>,
     /// Maximum number of results to return
     pub max_results: usize,
 }

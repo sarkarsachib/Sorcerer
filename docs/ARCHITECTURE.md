@@ -13,7 +13,7 @@ Sorcerer is a multi-layered agentic search engine consisting of:
 
 ## System Layers
 
-```
+```text
 ┌─────────────────────────────┐
 │     SORCERER UI/BROWSER     │  (Phase 6)
 └──────────────┬──────────────┘

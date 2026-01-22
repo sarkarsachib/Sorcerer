@@ -89,19 +89,20 @@ SELECT version();
 ```
 
 Expected output:
-```
+
+```text
              version
------------------------------------------------
+ -----------------------------------------------
  PostgreSQL 16.x on x86_64-pc-linux-gnu
 
-          List of relations
+           List of relations
  Schema |      Name      | Type  |  Owner
---------+----------------+-------+----------
- public | documents      | table  | sorcerer
- public | embeddings     | table  | sorcerer
- public | entities       | table  | sorcerer
- public | inverted_index | table  | sorcerer
- public | relationships  | table  | sorcerer
+ --------+----------------+-------+----------
+  public | documents      | table  | sorcerer
+  public | embeddings     | table  | sorcerer
+  public | entities       | table  | sorcerer
+  public | inverted_index | table  | sorcerer
+  public | relationships  | table  | sorcerer
 ```
 
 ### Check Redis

@@ -1,26 +1,28 @@
-//! Agent abstractions and types for the agentic reasoning system
+//! Agent abstractions and types for agentic reasoning system
 
 use std::collections::HashMap;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
+use crate::query::QueryConstraints;
+
 /// Core agent trait that all agent types must implement
 pub trait Agent: Send + Sync {
-    /// Returns the agent's unique name
+    /// Returns agent's unique name
     fn name(&self) -> &str;
 
-    /// Returns the type of this agent
+    /// Returns type of this agent
     fn agent_type(&self) -> AgentType;
 
     /// Executes a task and returns a result
     async fn execute(&mut self, task: Task) -> Result<AgentResult, AgentError>;
 
-    /// Returns the agent's current memory/context
+    /// Returns agent's current memory/context
     fn memory(&self) -> &Memory;
 }
 
-/// Different types of agents in the Sorcerer system
+/// Different types of agents in Sorcerer system
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum AgentType {
     /// Discovery and exploration agents
@@ -42,7 +44,7 @@ pub struct Task {
     pub id: String,
     /// The query or command to execute
     pub query: String,
-    /// Constraints on the query execution
+    /// Constraints on query execution
     pub constraints: QueryConstraints,
     /// Optional parent task ID for task hierarchies
     pub parent_id: Option<String>,
@@ -66,7 +68,7 @@ impl Task {
 /// The result of an agent's execution
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct AgentResult {
-    /// ID of the task that produced this result
+    /// ID of task that produced this result
     pub task_id: String,
     /// Execution status
     pub status: ExecutionStatus,
@@ -132,6 +134,3 @@ impl std::fmt::Display for AgentError {
 }
 
 impl std::error::Error for AgentError {}
-
-/// Import QueryConstraints from query module
-use crate::query::QueryConstraints;

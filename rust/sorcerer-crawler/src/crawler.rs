@@ -16,7 +16,7 @@ impl Crawler {
     /// Crawl a URL and extract content
     pub async fn crawl(&self, _url: &str) -> Result<Document, SorcererError> {
         // Placeholder - will be implemented in Phase 2
-        Err(SorcererError::IndexError("Not implemented yet".to_string()))
+        Err(SorcererError::CrawlerError("Not implemented yet".to_string()))
     }
 }
 

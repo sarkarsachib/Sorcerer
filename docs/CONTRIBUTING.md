@@ -76,7 +76,7 @@ pytest tests/ -v -s
 
 Follow conventional commit format:
 
-```
+```text
 type(scope): description
 
 [optional body]
@@ -94,7 +94,8 @@ Types:
 - `chore`: Maintenance tasks
 
 Examples:
-```
+
+```text
 feat(core): add agent orchestration system
 
 Implement basic task decomposition and
@@ -103,7 +104,7 @@ agent coordination for multi-step reasoning.
 Closes #123
 ```
 
-```
+```text
 fix(index): resolve vector search timeout
 
 Increase timeout for pgvector queries
@@ -112,7 +113,7 @@ to handle large document sets.
 
 ## Project Structure
 
-```
+```text
 sorcerer/
 ├── rust/                   # Rust workspace
 │   ├── sorcerer-core/      # Core abstractions
